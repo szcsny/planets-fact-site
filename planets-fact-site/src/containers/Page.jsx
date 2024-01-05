@@ -7,7 +7,7 @@ export default function Page(props) {
     
     return (
         <>
-            <img src={`../assets/${images[imgName]}`}/>
+            <img src={`../../public/assets/${images[imgName]}`}/>
             <h1>{name}</h1>
 
             <p>{page.content}</p>
