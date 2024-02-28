@@ -1,23 +1,27 @@
 import { useState } from 'react';
 import './App.css';
 import Planet from './containers/Planet';
+import Navbar from './containers/Navbar';
 
 function App({data}) {
-  console.log(data);
+  const [activePlanet, setActivePlanet] = useState("Mercury");
 
-  const planets = data.map(planet => {
-    return (
-      <Planet
-        key = {planet.name} 
-        planetData = {planet}
-      />
-    )
+  const planet = data.filter(item => {
+    return item.name === activePlanet;
   })
 
   return (
-    <>
-      {planets}
-    </>
+    <div className='App'>
+      <Navbar 
+        data={data}
+        setActivePlanet={setActivePlanet}
+      />
+
+      <Planet
+        key = {planet.name} 
+        planetData = {planet[0]}
+      />
+    </div>
   )
 }
 

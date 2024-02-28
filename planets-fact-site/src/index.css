@@ -1,0 +1,43 @@
+:root {
+    --white: #FFFFFF;
+    --dark-bg: #070724;
+    --dark-grey: #38384F;
+    --light-grey: #838391;
+    --Mercury: #419EBB;
+    --Venus: #EDA249;
+    --Earth: #6F2ED6;
+    --Mars: #D14C32;
+    --Jupiter: #D83A34;
+    --Saturn: #CD5120;
+    --Uranus: #1EC2A4;
+    --Neptune: #2D68F0;
+
+    --Mercury-nav: #DEF4FC;
+    --Venus-nav: #F7CC7F;
+    --Earth-nav: #545BFE;
+    --Mars-nav: #FF6A45;
+    --Jupiter-nav: #ECAD7A;
+    --Saturn-nav: #FCCB6B;
+    --Uranus-nav: #65F0D5;
+    --Neptune-nav: #497EFA;
+
+    --spartan: 'Spartan', sans-serif;
+    --antonio: 'Antonio', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+html {
+    font-family: var(--antonio);
+}
+
+h1 {
+    text-transform: uppercase;
+}
+
+p {
+    font-family: var(--spartan);
+}

@@ -1,37 +1,47 @@
 import './Navbar.css';
+import {useState} from 'react';
 
 export default function Navbar(props) {
+    const [showMenu, toggleShowMenu] = useState(false);
+
+    const dropdownMenu = (
+        <ul className='dropdown-menu'>
+            {props.data.map(planet => {
+                const name = planet.name;
+                return (
+                    <li 
+                    key={name}
+                    className="nav-list-item"
+                    onClick={() => choosePlanet(name)}>
+                        <div className='bullet'
+                            style={{backgroundColor: `var(--${name}-nav)`}}
+                        ></div>
+                        <p className='nav-list-planet'>{name}</p>
+                        <img src='../../public/assets/icon-chevron.svg'/>
+                    </li>
+                )
+                })
+            }
+        </ul>
+    )
+
+    const imgToDisplay = showMenu ? 'icon-hamburger-dim.svg' : 'icon-hamburger.svg';
+
+    function toggleMenu() {
+        toggleShowMenu(prev => !prev);
+    }
+
+    function choosePlanet(planet) {
+        props.setActivePlanet(planet);
+        toggleMenu();
+    }
+    
     return (
         <nav>
             <h1>The Planets</h1>
-            <div>hamburger icon</div>
+            <img onClick={toggleMenu} src={`assets/${imgToDisplay}`}/>
 
-            <ul>
-                <li>
-                    <button><img /> MERCURY</button>
-                </li>
-                <li>
-                    <button><img /> VENUS</button>
-                </li>
-                <li>
-                    <button><img /> EARTH</button>
-                </li>
-                <li>
-                    <button><img /> MARS</button>
-                </li>
-                <li>
-                    <button><img /> JUPITER</button>
-                </li>
-                <li>
-                    <button><img /> SATURN</button>
-                </li>
-                <li>
-                    <button><img /> URANUS</button>
-                </li>
-                <li>
-                    <button><img /> NEPTUNE</button>
-                </li>
-            </ul>
+            {showMenu && dropdownMenu}
         </nav>
     )
 }
