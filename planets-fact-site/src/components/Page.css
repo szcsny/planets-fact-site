@@ -1,3 +1,52 @@
+.Page {
+    text-align: center;
+    padding: 0 1.5em;
+}
+
+.image-div {
+    position: relative;
+    height: 334px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .planet-image {
-    max-width: 100%;
+    transform: scale(.5);
+}
+
+.geo-image {
+    position: absolute;
+    transform: scale(.2);
+    top: 10%;
+}
+
+.planet-name {
+    font-size: 2.5rem;
+    font-weight: normal;
+    margin-bottom: .5em;
+}
+
+.page-content {
+    margin-bottom: 2.5em;
+    font-size: 11px;
+    line-height: 2;
+}
+
+.source {
+    margin-bottom: 2em;
+    color: rgba(255, 255, 255, .5);
+    font-size: .75rem;
+
+    display: flex;
+    width: 35%;
+    margin: 0 auto 2em;
+    justify-content: space-between;
+    align-items: center;
+}
+
+a {
+    color: rgba(255, 255, 255, .5);
+    text-decoration: underline;
+    font-weight: bold;
 }

@@ -1,38 +1,71 @@
 import './Planet.css';
-import Navbar from '../containers/Navbar';
+import { useState } from 'react';
 import Page from '../components/Page';
+import Card from '../components/Card';
 
 export default function Planet(props) {
     const {name, images, overview, structure, geology, radius, rotation, revolution, temperature} = props.planetData;
     
+    const [activePage, setActivePage] = useState("Overview");
+
+    let pageContent;
+    let pageName;
+    let classNames = {
+        overview: "page-button",
+        structure: "page-button",
+        geology: "page-button"
+    }
+    switch(activePage){
+        case "Structure":
+            pageContent = structure;
+            pageName = "internal";
+            classNames = {
+                overview: "page-button",
+                structure: "page-button page-button-active",
+                geology: "page-button"
+            }
+            break;
+        case "Surface":
+            pageContent = geology;
+            pageName = "geology";
+            classNames = {
+                overview: "page-button",
+                structure: "page-button",
+                geology: "page-button page-button-active"
+            }
+            break;
+        default:
+            pageContent = overview;
+            pageName = "planet";
+            classNames = {
+                overview: "page-button page-button-active",
+                structure: "page-button",
+                geology: "page-button"
+            }
+    }
+
     return (
         <div className='Planet'>
-            <div>
-                <button>Overview</button>
-                <button>Structure</button>
-                <button>Surface</button>
+            <div className='buttons-div'>
+                <button className={classNames.overview} onClick={() => setActivePage("Overview")}>Overview</button>
+                <button className={classNames.structure} onClick={() => setActivePage("Structure")}>Structure</button>
+                <button className={classNames.geology} onClick={() => setActivePage("Surface")}>Surface</button>
             </div>
 
-            <Page name={name} imgName="planet" page={overview} images={images}/>
-            <Page name={name} imgName="internal" page={structure} images={images}/>
-            <Page name={name} imgName="planet" page={geology} images={images}/>
+            <Page name={name} pageName={pageName} page={pageContent} images={images}/>
 
-            <ul>
-                <li>
-                    <p>Rotation time</p>
-                    <h2>{rotation}</h2>
+            <ul className='card-list'>
+                <li className='card-list-item'>
+                    <Card category='Rotation time' value={rotation} />
                 </li>
-                <li>
-                    <p>Revolution time</p>
-                    <h2>{revolution}</h2>
+                <li className='card-list-item'>
+                    <Card category='Revolution time' value={revolution} />
                 </li>
-                <li>
-                    <p>Radius</p>
-                    <h2>{radius}</h2>
+                <li className='card-list-item'>
+                    <Card category='Radius' value={radius} />
                 </li>
-                <li>
-                    <p>Average temp.</p>
-                    <h2>{temperature}</h2>
+                <li className='card-list-item'>
+                    <Card category='Average temp.' value={temperature} />
                 </li>
             </ul>
         </div>

@@ -32,7 +32,7 @@ export default function Navbar(props) {
     }
 
     function choosePlanet(planet) {
-        props.setActivePlanet(planet);
+        props.setPlanet(planet);
         toggleMenu();
     }
     

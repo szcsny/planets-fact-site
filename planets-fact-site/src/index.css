@@ -3,6 +3,7 @@
     --dark-bg: #070724;
     --dark-grey: #38384F;
     --light-grey: #838391;
+
     --Mercury: #419EBB;
     --Venus: #EDA249;
     --Earth: #6F2ED6;
@@ -11,6 +12,8 @@
     --Saturn: #CD5120;
     --Uranus: #1EC2A4;
     --Neptune: #2D68F0;
+
+    --activePlanet: var(--Mercury);
 
     --Mercury-nav: #DEF4FC;
     --Venus-nav: #F7CC7F;
@@ -21,7 +24,7 @@
     --Uranus-nav: #65F0D5;
     --Neptune-nav: #497EFA;
 
-    --spartan: 'Spartan', sans-serif;
+    --spartan: 'League Spartan', sans-serif;
     --antonio: 'Antonio', sans-serif;
 }
 

@@ -10,11 +10,16 @@ function App({data}) {
     return item.name === activePlanet;
   })
 
+  function setPlanet(name) {
+    document.getElementById('root').style.setProperty('--activePlanet', `var(--${name})`);
+    setActivePlanet(name);
+  }
+
   return (
     <div className='App'>
       <Navbar 
         data={data}
-        setActivePlanet={setActivePlanet}
+        setPlanet={setPlanet}
       />
 
       <Planet
