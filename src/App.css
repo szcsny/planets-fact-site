@@ -1,0 +1,25 @@
+/* MOBILE FIRST */
+
+.App {
+    background-color: var(--dark-bg);
+    background-image: url('assets/background-stars.svg');
+    color: var(--white);
+
+    padding-bottom: 1em;
+}
+
+/* TABLET */
+
+@media (min-aspect-ratio: 4/5){
+    .App {
+        background-color: black;
+    }
+}
+
+/* DESKTOP */
+
+@media (min-aspect-ratio: 1/1){
+    .App {
+        background-color: red;
+    }
+}

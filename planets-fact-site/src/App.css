@@ -1,7 +1,0 @@
-.App {
-    background-color: var(--dark-bg);
-    background-image: url('assets/background-stars.svg');
-    color: var(--white);
-
-    padding-bottom: 1em;
-}
