@@ -1,8 +1,21 @@
 import './Navbar.css';
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 
 export default function Navbar(props) {
     const [showMenu, toggleShowMenu] = useState(false);
+    
+    const isMobile = props.aspectRatio <= .6;
+    
+    // To hide dropdown menu when resizing
+    useEffect(() => {
+        if(isMobile){
+            toggleShowMenu(false);
+        }
+    }, [props.aspectRatio]);
+
+    if(!isMobile && !showMenu){
+        toggleShowMenu(true);
+    }
 
     const dropdownMenu = (
         <ul className='dropdown-menu'>
@@ -13,11 +26,19 @@ export default function Navbar(props) {
                     key={name}
                     className="nav-list-item"
                     onClick={() => choosePlanet(name)}>
-                        <div className='bullet'
-                            style={{backgroundColor: `var(--${name}-nav)`}}
-                        ></div>
-                        <p className='nav-list-planet'>{name}</p>
-                        <img src='../../public/assets/icon-chevron.svg'/>
+                        <div className='nav-item-wrapper'>
+                            {isMobile && 
+                                <div className='bullet'
+                                    style={{backgroundColor: `var(--${name}-nav)`}}
+                                ></div>
+                            }
+
+                            <p className='nav-list-planet'>{name}</p>
+                        </div>
+                        
+
+                        {isMobile && 
+                            <img src='../../public/assets/icon-chevron.svg'/>}
                     </li>
                 )
                 })
@@ -38,8 +59,8 @@ export default function Navbar(props) {
     
     return (
         <nav>
-            <h1>The Planets</h1>
-            <img onClick={toggleMenu} src={`assets/${imgToDisplay}`}/>
+            <h1 className='title'>The Planets</h1>
+            {isMobile && <img onClick={toggleMenu} src={`assets/${imgToDisplay}`}/>}
 
             {showMenu && dropdownMenu}
         </nav>

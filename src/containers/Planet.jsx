@@ -10,49 +10,33 @@ export default function Planet(props) {
 
     let pageContent;
     let pageName;
-    let classNames = {
-        overview: "page-button",
-        structure: "page-button",
-        geology: "page-button"
-    }
+    
     switch(activePage){
         case "Structure":
             pageContent = structure;
             pageName = "internal";
-            classNames = {
-                overview: "page-button",
-                structure: "page-button page-button-active",
-                geology: "page-button"
-            }
             break;
         case "Surface":
             pageContent = geology;
             pageName = "geology";
-            classNames = {
-                overview: "page-button",
-                structure: "page-button",
-                geology: "page-button page-button-active"
-            }
             break;
         default:
             pageContent = overview;
             pageName = "planet";
-            classNames = {
-                overview: "page-button page-button-active",
-                structure: "page-button",
-                geology: "page-button"
-            }
     }
 
     return (
         <div className='Planet'>
-            <div className='buttons-div'>
-                <button className={classNames.overview} onClick={() => setActivePage("Overview")}>Overview</button>
-                <button className={classNames.structure} onClick={() => setActivePage("Structure")}>Structure</button>
-                <button className={classNames.geology} onClick={() => setActivePage("Surface")}>Surface</button>
-            </div>
 
-            <Page name={name} pageName={pageName} page={pageContent} images={images}/>
+            <Page 
+                name={name}
+                pageName={pageName}
+                page={pageContent}
+                images={images}
+                activePage={activePage}
+                setActivePage={setActivePage}
+                aspectRatio={props.aspectRatio}
+            />
 
             <ul className='card-list'>
                 <li className='card-list-item'>

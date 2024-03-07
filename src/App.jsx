@@ -37,6 +37,7 @@ function App({data}) {
       <Planet
         key = {planet.name} 
         planetData = {planet[0]}
+        aspectRatio={aspectRatio}
       />
     </div>
   )

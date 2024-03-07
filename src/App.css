@@ -4,15 +4,15 @@
     background-color: var(--dark-bg);
     background-image: url('assets/background-stars.svg');
     color: var(--white);
-
+    min-height: 100vh;
     padding-bottom: 1em;
 }
 
 /* TABLET */
 
-@media (min-aspect-ratio: 4/5){
+@media (min-aspect-ratio: 6/10){
     .App {
-        background-color: black;
+        
     }
 }
 
