@@ -20,6 +20,7 @@
     background-color: transparent;
     border: none;
     text-transform: uppercase;
+    cursor: pointer;
 }
 
 .page-button-active {
@@ -85,7 +86,7 @@
 
 /* TABLET */
 
-@media (min-aspect-ratio: 6/10){
+@media (min-width: 600px){
     .Page {
         display: grid;
         grid-template-columns: 50% auto;
@@ -117,6 +118,14 @@
         padding-top: 0;
     }
 
+    .page-button:hover {
+        background-color: var(--light-grey);
+    }
+
+    .page-button-active:hover {
+        background-color: var(--activePlanet);
+    }
+
     .buttons-div span {
         color: var(--white);
         opacity: .5;
@@ -143,4 +152,10 @@
         width: 100%;
         display: flex;
     }
+}
+
+/* DESKTOP */
+
+@media (min-width: 1000px) {
+    
 }

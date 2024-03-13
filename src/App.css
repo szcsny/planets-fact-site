@@ -10,7 +10,7 @@
 
 /* TABLET */
 
-@media (min-aspect-ratio: 6/10){
+@media (min-width: 600px){
     .App {
         
     }
@@ -18,8 +18,8 @@
 
 /* DESKTOP */
 
-@media (min-aspect-ratio: 1/1){
+@media (min-width: 1000px){
     .App {
-        background-color: red;
+        
     }
 }

@@ -1,10 +1,10 @@
 import './Page.css';
 
 export default function Page(props) {
-    const {name, pageName, page, images, activePage, setActivePage, aspectRatio} = props;
+    const {name, pageName, page, images, activePage, setActivePage, width} = props;
 
     const imgName = pageName === "internal" ? "internal" : "planet";
-    const isMobile = aspectRatio <= .6;
+    const isMobile = width < 600;
     
     let classNames = {
         overview: "page-button page-button-active",

@@ -5,15 +5,15 @@ import Navbar from './containers/Navbar';
 
 function App({data}) {
   const [activePlanet, setActivePlanet] = useState("Mercury");
-  const [aspectRatio, setAspectRatio] = useState(window.innerWidth / window.innerHeight);
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
 
   useEffect(() => {
     window.addEventListener("resize", () => {
-      setAspectRatio(window.innerWidth / window.innerHeight);
+      setScreenWidth(window.innerWidth);
     })
 
     return () => window.removeEventListener("resize", () => {
-      setAspectRatio(window.innerWidth / window.innerHeight);
+      setScreenWidth(window.innerWidth);
     })
   }, [])
 
@@ -31,13 +31,13 @@ function App({data}) {
       <Navbar 
         data={data}
         setPlanet={setPlanet}
-        aspectRatio={aspectRatio}
+        width={screenWidth}
       />
 
       <Planet
         key = {planet.name} 
         planetData = {planet[0]}
-        aspectRatio={aspectRatio}
+        width={screenWidth}
       />
     </div>
   )

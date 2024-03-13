@@ -35,7 +35,7 @@ export default function Planet(props) {
                 images={images}
                 activePage={activePage}
                 setActivePage={setActivePage}
-                aspectRatio={props.aspectRatio}
+                width={props.width}
             />
 
             <ul className='card-list'>

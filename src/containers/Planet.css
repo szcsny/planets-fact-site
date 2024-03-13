@@ -19,7 +19,7 @@
 
 /* TABLET */
 
-@media (min-aspect-ratio: 6/10){
+@media (min-width: 600px){
     .Planet {
         padding-top: 8rem;
     }
@@ -37,5 +37,16 @@
 
     .card-list-item:last-child {
         margin-right: 0;
+    }
+}
+
+/* DESKTOP */
+
+@media (min-width: 1000px) {
+    .Planet {
+        padding-top: 4rem;
+        margin: 0 auto;
+        width: 100%;
+        max-width: 1200px;
     }
 }

@@ -4,21 +4,29 @@ import {useEffect, useState} from 'react';
 export default function Navbar(props) {
     const [showMenu, toggleShowMenu] = useState(false);
     
-    const isMobile = props.aspectRatio <= .6;
+    const isMobile = props.width < 600;
     
     // To hide dropdown menu when resizing
     useEffect(() => {
         if(isMobile){
             toggleShowMenu(false);
         }
-    }, [props.aspectRatio]);
+    }, [props.width]);
 
     if(!isMobile && !showMenu){
         toggleShowMenu(true);
     }
 
+    let menuClassName;
+    if(isMobile){
+        menuClassName = showMenu ? 'dropdown-menu' : 'dropdown-menu menu-hidden';
+    } else {
+        menuClassName = 'dropdown-menu';
+    }
+    
+
     const dropdownMenu = (
-        <ul className='dropdown-menu'>
+        <ul className={menuClassName}>
             {props.data.map(planet => {
                 const name = planet.name;
                 return (
@@ -46,8 +54,6 @@ export default function Navbar(props) {
         </ul>
     )
 
-    const imgToDisplay = showMenu ? 'icon-hamburger-dim.svg' : 'icon-hamburger.svg';
-
     function toggleMenu() {
         toggleShowMenu(prev => !prev);
     }
@@ -56,13 +62,22 @@ export default function Navbar(props) {
         props.setPlanet(planet);
         toggleMenu();
     }
+
+    const hamClassName = showMenu ? 'hamburger-div ham-clicked' : 'hamburger-div';
     
     return (
         <nav>
             <h1 className='title'>The Planets</h1>
-            {isMobile && <img onClick={toggleMenu} src={`assets/${imgToDisplay}`}/>}
+            {isMobile && 
+                <div className={hamClassName} onClick={toggleMenu}>
+                    <span className='ham1'></span>
+                    <span className='ham2'></span>
+                    <span className='ham3'></span>
+                    <span className='ham4'></span>
+                </div>
+            }
 
-            {showMenu && dropdownMenu}
+            {dropdownMenu}
         </nav>
     )
 }
