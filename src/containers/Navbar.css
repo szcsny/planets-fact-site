@@ -37,7 +37,7 @@ nav h1 {
 }
 
 .ham1 {
-
+    top: 0;
 }
 
 .ham2 {
@@ -219,9 +219,5 @@ nav h1 {
     .nav-list-item:hover {
         border-top: 4px solid var(--activePlanet);
         padding-bottom: 4px;
-    }
-
-    .nav-list-planet {
-        
     }
 }
